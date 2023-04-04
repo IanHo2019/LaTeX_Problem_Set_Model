@@ -1,0 +1,496 @@
+\documentclass[12pt, letterpaper]{article}
+
+% Language and font setting
+\usepackage[english]{babel}
+\usepackage{times}
+
+% Set page size and margins
+\usepackage[letterpaper,top=1.5cm,bottom=2cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
+
+% Set line spacing
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+
+% Customize section title
+\usepackage{titlesec}
+\titleformat*{\section}{\large\bfseries}
+\titlespacing*{\section}{0pt}{1em}{2pt} % Change the spacing before and after the section heading
+
+\usepackage{titling}
+\setlength{\droptitle}{-4em} % reduce the spacing before the title
+
+% Customize "footnote" and "thanks"
+\usepackage[flushmargin,bottom]{footmisc}
+\settowidth{\thanksmarkwidth}{*}
+\setlength{\thanksmargin}{-\thanksmarkwidth}
+
+% Set shade frame for "solution"
+\usepackage{xcolor}
+\definecolor{shadecolor}{RGB}{245,245,245}
+\usepackage{framed}
+
+% Math equations
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage{dutchcal} % for swash words
+
+\newcommand*{\defeq}{\overset{\mathrm{def}}{=\joinrel=}}
+\newcommand*{\seteq}{\overset{\mathrm{set}}{=\joinrel=}}
+\DeclareMathOperator*{\plim}{plim}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+
+\newcommand{\smp}[1]{\left(#1\right)}
+\newcommand{\medp}[1]{\left[#1\right]}
+\newcommand{\bgp}[1]{\left\{#1\right\}}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+% Table
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{siunitx}
+
+% Figure
+\usepackage{graphicx}
+\usepackage{pifont}
+\usepackage{asymptote}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{patterns,decorations.pathreplacing,calligraphy,calc,shapes.misc}
+
+% Customize "itemize" and "enumerate"
+\usepackage{enumitem}
+\setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt,itemindent=0.5em}
+\setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+
+% Reference and citation
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{csquotes}
+\usepackage[style=apa,
+    backend=biber,
+    sorting=nyt,
+    natbib=true]{biblatex}
+\addbibresource{reference.bib}
+
+% Code listing
+\usepackage{listings}
+
+\renewcommand{\ttdefault}{cmtt}
+\lstdefinestyle{mystyle}{
+  basicstyle=\ttfamily
+}
+
+\lstset{style=mystyle, breaklines=true}
+
+\definecolor{structurecolor}{RGB}{60,113,183}
+\definecolor{forestgreen}{RGB}{0,153,76}
+\definecolor{winered}{RGB}{153,0,0}
+\lstset{
+    % Code design
+    commentstyle=\slshape\color{forestgreen},
+    identifierstyle=\color{black},
+    keywordstyle=[1]{\color{blue}},
+    keywordstyle=[2]{\color{black}},
+    keywordstyle=[3]{\color{winered}},
+    keywordstyle=[4]{\color{forestgreen}},
+    otherkeywords={},
+    stringstyle=\color{winered},
+    % Line-numbers design
+    numbers=left, % position for line-numbers      
+    % numbersep=5pt,
+    numberstyle=\color{gray},
+    % Space design
+    keepspaces=true, % indentation of code
+    showspaces=false, % show spaces by adding underscores
+    showstringspaces=false, % underline spaces within strings only
+    showtabs=false,
+    % Frame design
+    frame=single,
+    tabsize=2,
+    rulecolor=\color{structurecolor}, % set frame color
+    framerule=0.2pt,
+    % Margin design
+    xleftmargin=0.8cm,
+    xrightmargin=0.8cm,
+    % Punctuation design
+    literate={~}{{\color{blue}\raisebox{0.5ex}{\texttildelow}}}1,
+    upquote=true,
+    % Other design
+    columns=flexible,
+    % backgroundcolor=\color{white},
+    % caption=Example,
+    % mathescape=false,
+}
+
+\lstdefinelanguage{Stata}{
+    morekeywords=[1]{clear, display, gen, local, reg, set, summarize},
+    morekeywords=[1]{forvalues, foreach, if},
+    morecomment=[l]{//},
+    morecomment=[f][\color{forestgreen}\slshape][0]*,
+    morecomment=[s]{/*}{*/},
+    morestring=[b]",
+    % Global and macro
+    keywordsprefix=[3]\$,
+    morecomment=[n][keywordstyle4]{`}{'},
+    sensitive=true,
+}
+
+\lstdefinelanguage{Matlab}{
+    morekeywords=[1]{mean, rand, randi, randn},
+    morekeywords=[3]{if, global},
+    morecomment=[l]{\%},
+    morestring=[s]{'}{'},
+    sensitive=true,
+}
+
+
+% Special words
+\newcommand{\comp}[1]{{\fontfamily{cmtt}\selectfont\color{blue}#1}}
+
+
+
+
+\title{Problem Set Model \\
+    \Large for Pseudoscience\vspace{-1em}}
+\author{Ian Ho\thanks{This is my \LaTeX\ model for writing solutions to problem sets in Economics. The problems in this problem set are from first-year PhD courses at \href{https://www.ou.edu/}{The University of Oklahoma}.}}
+\date{\today}
+
+
+\begin{document}
+\setlength{\abovedisplayskip}{5pt}
+\setlength{\belowdisplayskip}{5pt}
+\setlength{\abovedisplayshortskip}{5pt}
+\setlength{\belowdisplayshortskip}{5pt}
+
+\maketitle
+
+
+
+
+\section{Microeconomics (Normal Forms)}
+Depict the normal forms for Matching Pennies Version C in \citet{MasColell1995} and the standard version of Matching Pennies.
+
+\begin{shaded}
+\noindent\textbf{\textit{Solution:}}\par
+The normal forms for Matching Pennies Version C and the standard version of Matching Pennies are exactly the same (shown below). In Version C, player 2 cannot see player 1's choice until player 2 has moved; therefore, the game is strategically equivalent to the standard version.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ccp{0.1\textwidth}<\centering p{0.1\textwidth}<\centering}
+        & & \multicolumn{2}{c}{Player 1} \\
+        & & \textit{H} & \textit{T} \\ \cline{3-4}
+        \multirow{2}{*}{Player 2} & \textit{H} & \multicolumn{1}{|c|}{$1,-1$} & \multicolumn{1}{c|}{$-1,1$} \\ \cline{3-4}
+        & \textit{T} & \multicolumn{1}{|c|}{$-1,1$} & \multicolumn{1}{c|}{$1,-1$} \\ \cline{3-4}
+    \end{tabular}
+\end{table}
+\end{shaded}
+
+
+
+
+\section{Microeconomics (Weak PBE)}
+Consider the following game. Nature first makes a move and with probability $(p, 1-p)$. Player 1 then decides whether or not to offer a gift to player 2, after observing nature's move. Player 2 observes player 1's move but not nature's. Player 2 decides whether or not to accept player 1's offer, if there is one. The payoffs are as given in the figure below. Derive all pure strategy weak PBE.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=1.5]
+        \draw[thick] (0,2) -- (-1.5,1) node[pos=.5,left=0.1cm,above] {$p$};
+        \draw[thick] (0,2) -- (1.5,1) node[pos=.5,right=0.2cm,above] {$1-p$};
+        \draw[thick] (-1.5,1) -- (-3,0) node[pos=.5,left=0.2cm] {\color{red}No Gift};
+        \draw[thick,fill] (-1.5,1) -- (-1,0) node[pos=.5,right=0.1cm] {\color{red}Gift} circle (2pt);
+        \draw[thick,fill] (1.5,1) -- (1,0) node[pos=.5,left=0.1cm] {\color{red}Gift} circle (2pt);
+        \draw[thick] (1.5,1) -- (3,0) node[pos=.5,right=0.2cm] {\color{red}No Gift};
+        \draw[thick] (-1,0) -- (-1.5,-1) node[pos=.5,left=0.1cm] {\color{blue}$A$};
+        \draw[thick] (-1,0) -- (-0.5,-1) node[pos=.5,right=0.1cm] {\color{blue}$R$};
+        \draw[thick] (1,0) -- (0.5,-1) node[pos=.5,left=0.1cm] {\color{blue}$A$};
+        \draw[thick] (1,0) -- (1.5,-1) node[pos=.5,right=0.1cm] {\color{blue}$R$};
+        \draw[fill=white, thick] (0,2) circle[radius=2pt];
+        \node[above=0.1cm] at (0,2) {Nature};
+        \fill (-1.5,1) circle (2pt) node[left=0.1cm] {\color{red}Player 1};
+        \fill (1.5,1) circle (2pt) node[right=0.1cm] {\color{red}Player 1};
+        \node at(0,0) {\color{blue}Player 2};
+        \node[rounded rectangle, draw, dashed, inner xsep=1.8cm, inner ysep=0.27cm] at (0,0) {};
+        \fill (-1.5,-1) circle (2pt) node[below=0.1cm] {\small$\begin{pmatrix} 1 \\ 1 \end{pmatrix}$};
+        \fill (-0.5,-1) circle (2pt) node[below=0.1cm] {\small$\begin{pmatrix} -1 \\ 0 \end{pmatrix}$};
+        \fill (0.5,-1) circle (2pt) node[below=0.1cm] {\small$\begin{pmatrix} 1 \\ 0 \end{pmatrix}$};
+        \fill (1.5,-1) circle (2pt) node[below=0.1cm] {\small$\begin{pmatrix} -1 \\ -1 \end{pmatrix}$};
+        \fill (-3,0) circle (2pt) node[below=0.1cm] {\small$\begin{pmatrix} 0 \\ 0 \end{pmatrix}$};
+        \fill (3,0) circle (2pt) node[below=0.1cm] {\small$\begin{pmatrix} 0 \\ 0 \end{pmatrix}$};
+    \end{tikzpicture}
+\end{figure}
+
+\begin{shaded}
+\noindent\textbf{\textit{Solution:}}\par
+If player 1 offers a gift to player 2, player 2's best response is $A$, regardless of the nature. Given this, player 1 would always like to offer a gift, since $1 > 0$.
+
+The probabilities with which the game actually reaches the player 1's left and right decision nodes are $p$ and $1-p$, respectively. So, the probabilities with which player 1 offers a gift at the left and right decision node are $p$ and $1-p$, respectively. In weak PBE, player 2's beliefs must be consistent with the strategies being played by player 1; that is, player 2's beliefs must be
+\begin{equation*}
+    \mu_{G1} = p \quad \text{and} \quad \mu_{G2} = 1-p
+\end{equation*}
+where subscripts $G1$ and $G2$ denote the player 2's left and right decision nodes in his/her information set.
+
+Therefore, there is a pure strategy weak PBE in this game:
+\begin{equation*}
+    (\sigma_1, \sigma_2) = \Bigl( (\text{Gift, Gift}), (\text{$A$ if player 1 offers a gift}) \Bigr)
+\end{equation*}
+with a belief system
+\begin{equation*}
+    (\mu_{G1}, \mu_{G2}) = (p, 1-p)
+\end{equation*}
+\end{shaded}
+
+
+
+
+\section{Macroeconomics (Neoclassical Growth Model)}
+Consider the neoclassical growth model:
+\begin{equation*}
+    \max_{\{C_t, K_{t+1}\}_{t=0}^{\infty}} \sum_{t=0}^{\infty} \beta^t u(C_t)
+\end{equation*}
+subject to
+\begin{align}
+    & C_t + I_t \leq F(K_t, L_t) \label{eq:PS2_neo_BC1} \\
+    & K_{t+1} = (1-\delta) K_t + I_t \label{eq:PS2_neo_BC2}
+\end{align}
+
+\noindent\textbf{(a)} Characterize optimal solution. That is, derive the Euler equation.
+
+\begin{shaded}
+\noindent\textbf{\textit{Solution:}}\par
+The agent's choice variables are $\{C_t, K_{t+1}\}_{t=0}^{\infty}$. To simplify the model, we can normalize the labor to one:
+\begin{equation*}
+    F(K_t, 1) \equiv f(K_t)
+\end{equation*}
+Then the Lagrangian is
+\begin{equation*}
+    \mathcal{L} = \sum_{t=0}^{\infty} \beta^t \bgp{u(C_t) - \lambda_t\medp{C_t + I_t - f(K_t)} - \mu_t\medp{K_{t+1} - (1-\delta) K_t - I_t}}
+\end{equation*}
+The FOCs are
+\begin{align}
+    \frac{\partial \mathcal{L}}{\partial C_t} & = \beta^t [u'(C_t) - \lambda_t] = 0 \label{eq:PS2_neo_FOC1} \\[5pt]
+    \frac{\partial \mathcal{L}}{\partial K_{t+1}} & = \beta^t \bgp{ -\mu_t + \beta\medp{ \lambda_{t+1} f'(K_{t+1}) + \mu_{t+1}(1-\delta) } } = 0 \label{eq:PS2_neo_FOC2} \\[5pt]
+    \frac{\partial \mathcal{L}}{\partial I_t} & = \beta^t (-\lambda_t + \mu_t) = 0 \label{eq:PS2_neo_FOC3}
+\end{align}
+with two budget constraints.
+
+Combining constraints (\ref{eq:PS2_neo_BC1}) and (\ref{eq:PS2_neo_BC2}) with FOCs (\ref{eq:PS2_neo_FOC1})--(\ref{eq:PS2_neo_FOC3}), we can get the Euler equation:
+\begin{equation*}
+    u'[f(K_t) + (1-\delta)K_t - K_{t+1}] = \beta u'[f(K_{t+1}) + (1-\delta)K_{t+1} - K_{t+2}] \cdot [f'(K_{t+1}) + 1 - \delta]
+\end{equation*}
+
+The Euler equation with transversality condition $\lim_{t \to \infty} \beta^t \lambda_t K_t = 0$ characterizes optimal solution to the problem.
+\end{shaded}
+
+
+\vspace{1em}
+\noindent\textbf{(b)} Let $K_{t+1} = g(K_t)$ be the policy function (choices that satisfies the optimization problem). What are the five properties of the policy function under our standard assumptions of the utility and production function?
+
+\begin{shaded}
+\noindent\textbf{\textit{Solution:}}\par
+The five properties of the policy function include
+\begin{itemize}
+    \item $g(K_t)$ is single-valued.
+    \item $g(K_t)$ is strictly increasing in $K_t$.
+    \item $g(K_t)$ is continuous.
+    \item $\exists \overline{K}$ such that $\forall K < \overline{K}$, $g(K) < \overline{K}$.
+    \item $g(0) = 0$.
+\end{itemize}
+\end{shaded}
+
+
+\vspace{1em}
+\noindent\textbf{(c)} Assume $u(C) = \log(C)$, $f(K) = K^{\alpha}$, and $\delta = 1$. We guess that the policy function takes the form $g(K) = \phi K^{\alpha}$. Verify that the policy function indeed takes this form and solve for $\phi$.
+
+\begin{shaded}
+\noindent\textbf{\textit{Solution:}}\par
+Given $u(C) = \log(C)$, $f(K) = K^{\alpha}$, and $\delta = 1$, we have
+\begin{align*}
+    C_t & = f(K_t) + (1-\delta)K_t - K_{t+1} \\
+    & = K_t^{\alpha} - g(K_t)
+\end{align*}
+and similarly,
+\begin{equation*}
+    C_{t+1} = K_{t+1}^{\alpha} - g(K_{t+1})
+\end{equation*}
+
+Note that the Euler equation can be written in the following form:
+\begin{equation*}
+    u'(C_t) = \beta u'(C_{t+1}) [f'(K_{t+1}) + 1 - \delta]
+\end{equation*}
+Since $u(C) = \log(C)\ \Rightarrow \ u'(C) = \frac{1}{C}$, $f(K) = K^{\alpha} \ \Rightarrow \ f'(K) = \alpha K^{\alpha-1}$, and $\delta = 1$, we have
+\begin{align*}
+    & \frac{1}{C_t} = \frac{\beta f'(K_{t+1})}{C_{t+1}} \\
+    \Rightarrow \ & \frac{1}{K_t^{\alpha} - g(K_t)} = \frac{\beta \alpha K_{t+1}^{\alpha-1}}{K_{t+1}^{\alpha} - g(K_{t+1})}
+\end{align*}
+
+Make a guess: $g(K_t) = \phi K_t^{\alpha}$. Then we have
+\begin{align*}
+    & \frac{1}{K_t^{\alpha} - \phi K_t^{\alpha}} = \frac{\beta \alpha K_{t+1}^{\alpha-1}}{K_{t+1}^{\alpha} - \phi K_{t+1}^{\alpha}} \\
+    \Rightarrow \ & \frac{1}{K_t^{\alpha} (1 - \phi)} = \frac{\alpha \beta}{K_{t+1} - \phi K_{t+1}} \\
+    \Rightarrow \ & \frac{1}{K_t^{\alpha} (1 - \phi)} = \frac{\alpha \beta}{(1-\phi) \phi K_t^{\alpha}} \\
+    \Rightarrow \ & \phi = \alpha \beta
+\end{align*}
+
+Therefore, we get the policy function:
+\begin{equation*}
+    g(K_t) = \phi K_t^{\alpha} \quad \text{where $\phi = \alpha \beta$}
+\end{equation*}
+\end{shaded}
+
+
+
+
+\section{Econometrics (LIE in STATA)}
+The goal of this exercise is to showcase how the Law of Iterated Expectations (LIE) works. It will help to keep a few things in mind:
+\begin{itemize}
+    \item LIE: $E(Y) = E[E(Y|X)]$.
+    \item For normally distributed random variables, we will have $E(Y|X) = a + bX$.
+    \item As empirical counterparts of the expectations, use the sample means, so that
+    \begin{equation*}
+        \overline{Y} = \frac{1}{N} \sum_{i=1}^N Y_i \approx E(Y)
+    \end{equation*}
+    Another consequence (of Law of Large Numbers) should be $\hat{a} + \hat{b} \overline{X} \approx E(Y|X)$ with $\hat{a}$, $\hat{b}$ being regression coefficients of regressing $Y$ on $X$ and a constant.
+\end{itemize}
+For this exercise, create a simulated dataset with 1000 observations drawn from two independent normal random variables:
+\begin{itemize}
+    \item A variable \lstinline{X} with expectation 5 and standard deviation 1.
+    \item A variable \lstinline{U} with expectation 0 and standard deviation 1.
+    \item Then use \lstinline{X} and \lstinline{U} to construct \lstinline{Y} using \lstinline{Y} = \lstinline{X} + \lstinline{U}.
+\end{itemize}
+Show that the Law of Iterated Expectations holds in this dataset.
+
+\begin{shaded}
+\noindent\textbf{\textit{Solution:}}\par
+I use STATA to create a simulated dataset and show that the LIE holds: $E[E(Y|X)] = E(Y) \approx 4.9911$.
+\begin{lstlisting}[language=Stata]
+clear all
+
+**# Problem 2. Law of Iterated Expectations in STATA
+set obs 1000
+set seed 1
+
+* Create three variables
+gen X = rnormal(5,1)
+gen U = rnormal(0,1)
+gen Y = X + U
+
+* Show E[E(Y|X)] = E(Y)
+summarize X
+local Xbar = `r(mean)'
+
+reg Y X
+
+gen Yhat = _b[_cons] + `Xbar' * _b[X]
+
+display Yhat[1]
+
+summarize Y
+\end{lstlisting}
+\end{shaded}
+
+
+
+
+\section{Econometrics (Macroeconomic Tax Policy)}
+A major issue in public policy is understanding the macroeconomic effects of tax policy. For this purpose, we will index observations with a time index $t$ instead of looking at a cross-section of individual $i$. The dependent variable of interest is GDP growth $y_{t+1}$ and the main independent variable of interest is the size of a tax cut, relative to GDP, denoted by $X_{1,t}$. Importantly, higher values if $X_{1,t}$ will mean higher reductions in taxes relative to current GDP, while lower values will mean lower reductions in taxes relative to current GDP. A major confounding variable is policy maker's expectations of future GDP, which we denote by $X_{2,t} = E_t^P(y_{t+1})$, where $E_t^P(\cdot)$ denotes the subjective expectation of policy makers at time $t$ for the one-period ahead GDP growth.
+\begin{equation}
+    \label{eq:sibalP3Q3_yX1X2}
+    y_{t+1} = \beta_1 X_{1,t} + \beta_2 X_{2,t} + \epsilon_{t+1}
+\end{equation}
+with $\epsilon_{t+1}$ as a mean-zero, i.i.d. error term.
+
+\noindent\textbf{(a)} Before analyzing regression results, provide an interpretation of the coefficients $\beta_1$, $\beta_2$, and describe the sign you would expect for each coefficient and the economic intuition for why you expect this sign.
+
+\begin{shaded}
+\noindent\textbf{\textit{Solution:}}\par
+$\beta_1$ measures the correlation between tax cuts and GDP growth in the year after the tax cut. $\beta_2$ measures the correlation between expected GDP growth by policy-makers and realized future GDP growth. In the case, I expect both $\beta_1$ and $\beta_2$ to be positive.
+
+The reason for positive $\beta_1$ is that lower tax rates can give people more after-tax income that could be used to buy more goods and services. Furthermore, reduced tax rates may boost savings and investment, leading to further production. See \citet{Romer2010} and \citet{Serrato2018} for empirical evidence. The intuition for positive $\beta_2$ is that policy makers observe and predict the economic growth and might have a good sense of future GDP growth. Even though they do not perfectly forecast future growth, their forecasts are typically positively correlated with future growth.
+\end{shaded}
+
+
+\vspace{1em}
+\noindent\textbf{(b)} Suppose you read a report by the congressional budget office (CBO), which uses annual data on US GDP growth and tax cuts to estimate how much tax cuts stimulate GDP growth. There are no other control variables in the CBO model, so one can write it as
+\begin{equation}
+    \label{eq:sibalP3Q3_yX1}
+    y_{t+1} = bX_{1,t} + e_{t+1}
+\end{equation}
+with $e_{t+1}$ as a mean-zero, i.i.d. error term. The CBO estimates that $\hat{b} = 0.2$ with a standard error of 0.8. Interpret the magnitude of this coefficient by predicting the impact of a 1\% reduction in tax revenue relative to GDP (i.e., $X_{1,t}$ increases by 1\%) on GDP growth in the year after. Additionally, provide 95\% confidence intervals of the effect of the same 1\% tax cut.
+
+\begin{shaded}
+\noindent\textbf{\textit{Solution:}}\par
+$\hat{b} = 0.2$ means that with a 1\% reduction in tax rate relative to current GDP, GDP growth in the following year will increase 0.2\%. The 95\% confidence intervals of the effect of the same 1\% tax cut is
+\begin{equation*}
+    1\% \times [0.2 - 1.96 \times 0.8, 0.2 + 1.96 \times 0.8] = [-1.368\%, 1.768\%]
+\end{equation*}
+\end{shaded}
+
+
+\vspace{1em}
+\noindent\textbf{(c)} A sceptic of the CBO report claims: ``The results are actually very consistent with there being a zero effect of tax cuts on economic growth.'' Explain the logic behind this sceptic's statement by showing whether the estimates are statistically significant in a large sample and discuss how statistical significance either back up or contradicts the sceptic's position.
+
+\begin{shaded}
+\noindent\textbf{\textit{Solution:}}\par
+We can do a $t$-test to check the statistical significance. Since
+\begin{equation*}
+    t = \frac{\hat{b} - 0}{\hat{\sigma}} = 0.25 < 1.96
+\end{equation*}
+Therefore, we cannot reject the null hypothesis that the estimate $\hat{b}$ is different from zero. The result of the test backs up the sceptic's position.
+\end{shaded}
+
+
+\vspace{1em}
+\noindent\textbf{(d)} As mentioned, a potentially important variable in GDP growth is the expected GDP growth by policy makers, $X_{2,t} = E_t^P(y_{t+1})$. Suppose that you could run the following regression:
+\begin{equation}
+    \label{eq:sibalP3Q3_X2X1}
+    X_{2,t} = \delta X_{1,t} + u_t
+\end{equation}
+with $u_t$ as a mean-zero, i.i.d. error term. Interpret $\delta$ and explain what sign you expect for $\delta$ and why.
+
+\begin{shaded}
+\noindent\textbf{\textit{Solution:}}\par
+$\delta$ measures the association between $X_{1,t}$ and $X_{2,t}$ --- that is, the correlation between the size of tax cuts and expected GDP growth by policy makers. I expect the sign of $\delta$ to be negative, considering that policy makers will enlarge the size of tax cuts if they predict the GDP growth will slow down.
+\end{shaded}
+
+
+\vspace{1em}
+\noindent\textbf{(e)} Derive the omitted variables bias in the CBO model in part (b), using (\ref{eq:sibalP3Q3_yX1X2}), (\ref{eq:sibalP3Q3_yX1}), and (\ref{eq:sibalP3Q3_X2X1}). After deriving this bias, explain what the sign of the bias is likely going to be and why. In this context, reconsider the sceptic's claim in part (c) and comment on whether you agree or disagree with the sceptic, based on your analysis of the omitted variables bias in the CBO model.
+
+\begin{shaded}
+\noindent\textbf{\textit{Solution:}}\par
+Since
+\begin{align*}
+    b & = \frac{Cov(y_{t+1}, X_{1,t})}{Var(X_{1,t})} \\[5pt]
+    & = \frac{Cov(\beta_1 X_{1,t} + \beta_2 X_{2,t} + \epsilon_{t+1}, X_{1,t})}{Var(X_{1,t})} \\[5pt]
+    & = \frac{\beta_1 Var(X_{1,t}) + \beta_2 Cov(X_{1,t}, X_{2,t})}{Var(X_{1,t})} \\[5pt]
+    & = \beta_1 + \beta_2 \delta
+\end{align*}
+then we know the omitted variables bias is $\beta_2 \delta$. As we analyzed in part (a) and (e), the sign of this bias should be negative. Thus, I suspect that the sceptic's claim might be incorrect, because $b$ does not estimate the true value of $\beta_1$ and it has a downward bias.
+\end{shaded}
+
+
+\vspace{1em}
+\noindent\textbf{(f)} What would be the ideal RCT (experiment) to run to correctly identify $\beta_1$? In particular, discuss how such an RCT would eliminate the omitted variables bias you discussed in part (e). Alternatively, you might offer a way to control for the specific omitted variables bias you have in mind by proposing to include a specific control variable in the regression.
+
+\begin{shaded}
+\noindent\textbf{\textit{Solution:}}\par
+An ideal RCT in this case should be able to randomize the policy makers' expectation of GDP growth; thus, $\delta$ becomes zero and then the omitted variables bias is eliminated. Alternatively, we can use some tools (like survey) to measure each policy maker's expectation of GDP growth and then include the measure as a control variable.
+\end{shaded}
+
+
+
+
+\newpage
+\printbibliography[
+    heading=bibintoc,
+    title={Reference}
+]
+
+
+
+\end{document}
