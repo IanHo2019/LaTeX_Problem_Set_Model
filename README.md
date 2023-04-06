@@ -6,3 +6,6 @@ In this repository, I share my LaTeX coding ([here](./main.tex)) for producing a
   * construct a shaded frame for showing solutions;
   * print external coding (e.g., Stata, MATLAB, R, etc.);
   * construct in-text citations and a reference list.
+
+## Notes for Preamble
+* The `babel` package ([documentation](https://ctan.org/pkg/babel?lang=en)) manages culturally-determined typographical rules for a wide range of languages. For a monolingual document, we just need to pass the language as an optional argument. Here, I used `english`.
