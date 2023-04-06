@@ -8,4 +8,5 @@ In this repository, I share my LaTeX coding ([here](./main.tex)) for producing a
   * construct in-text citations and a reference list.
 
 ## Notes for Preamble
-* The `babel` package ([documentation](https://ctan.org/pkg/babel?lang=en)) manages culturally-determined typographical rules for a wide range of languages. For a monolingual document, we just need to pass the language (e.g., `english`, `french`, `polish`, etc.) as an optional argument.
+* The `babel` package ([documentation](https://ctan.org/pkg/babel?lang=en)) manages culturally-determined typographical rules for a wide range of languages. For a monolingual document, we just need to pass the language (e.g., `english`, `french`, `polish`, etc.) as an argument.
+* The `times` package supports Times Roman text and matching mathematics. The official website of this package says it is obsolete and nowadays the `mathptmx` package ([documentation](https://ctan.org/pkg/mathptmx)) is more popular. I keep using `times` just because I prefer its font for mathematics.
