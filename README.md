@@ -8,4 +8,4 @@ In this repository, I share my LaTeX coding ([here](./main.tex)) for producing a
   * construct in-text citations and a reference list.
 
 ## Notes for Preamble
-* The `babel` package ([documentation](https://ctan.org/pkg/babel?lang=en)) manages culturally-determined typographical rules for a wide range of languages. For a monolingual document, we just need to pass the language as an optional argument. Here, I used `english`.
+* The `babel` package ([documentation](https://ctan.org/pkg/babel?lang=en)) manages culturally-determined typographical rules for a wide range of languages. For a monolingual document, we just need to pass the language (e.g., `english`, `french`, `polish`, etc.) as an optional argument.
