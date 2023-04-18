@@ -33,4 +33,4 @@ A larger baselinestretch is used.
 ```
 * The `footmisc` package ([documentation](https://ctan.org/pkg/footmisc)) has a set of options to change the typesetting of footnotes. Here I only use two among them:
   * `flushmargin`: This option sets the footnote marker flush with the text of the footnote; in other words, it kills the idention of the first line of each footnote.
-  * `bottom`: This option forces footnotes (but not the floats) to the bottom of the page. If `\raggedbottom` is in force, then the excess space goes above the footnotes if any are present.
+  * `bottom`: This option forces footnotes to the bottom of the page. If `\raggedbottom` is in force, then the excess space goes above the footnotes if any are present.
