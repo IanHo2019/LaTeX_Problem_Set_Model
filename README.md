@@ -34,3 +34,11 @@ A larger baselinestretch is used.
 * The `footmisc` package ([documentation](https://ctan.org/pkg/footmisc)) has a set of options to change the typesetting of footnotes. Here I only use two among them:
   * `flushmargin`: This option sets the footnote marker flush with the text of the footnote; in other words, it kills the idention of the first line of each footnote.
   * `bottom`: This option forces footnotes to the bottom of the page. If `\raggedbottom` is in force, then the excess space goes above the footnotes if any are present.
+
+## Color
+I use the `xcolor` package ([documentation](https://ctan.org/pkg/xcolor)) to select colors for hyper references, url links, plotting figures, etc. The basic color (e.g., blue and red) can be used directly by typing `\color{color_name}` to use it in the document. If additional colors are needed, I suggest to first name the color (for convenient future use) by the `\definecolor{name}{RGB}{#,#,#}` command, and then use the `\color{color_name}` command as before. The [RGB model](https://en.wikipedia.org/wiki/RGB_color_model) is my often-used model, but other models (e.g., `rgb`, `HTML`, `HSB`, etc.) are also available.
+
+A good guideline for `xcolor` beginners can be found [here](https://steeven9.github.io/USI-LaTeX/html/packages_hyperref_babel_xcolor3.html).
+
+## Frame
+To highlight my solution to each question, I use the `shaded` environment from the `framed` package ([documentation](https://ctan.org/pkg/framed)). The color for shading can be customized by using the `\definecolor{shadecolor}` command. I use very slight gray for shading.
