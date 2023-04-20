@@ -42,3 +42,9 @@ A good guideline for `xcolor` beginners can be found [here](https://steeven9.git
 
 ## Frame
 To highlight my solution to each question, I use the `shaded` environment from the `framed` package ([documentation](https://ctan.org/pkg/framed)). The color for shading can be customized by using the `\definecolor{shadecolor}` command. I use very slight gray for shading.
+
+## Math
+* The `amsmath` package ([documentation](https://ctan.org/pkg/amsmath)) is a principal package for mathematical typesetting. Once `amsmath` is loaded, the packages `amsbsy` (for bold symbols), `amsopn` (for operator names) and `amstext` (for text embedded in mathematics) are also loaded.
+* The `amssymb` package provides an extended symbol collection, especially including some additional binary relation symbols (e.g., `\boxdot`, `\boxplus`, `\boxtimes`). Something noteworthy is that this package provides the `\mathbb{ }` command for producing blackboard bold characters.
+* The `bbm` package ([documentation](https://ctan.org/pkg/bbm)) provides blackboard variants of characters in math mode. The command is `\mathbbm{ }`, which produces the blackboard bold characters slighly different from those produced by `\mathbb{ }`. My preference between `\mathbb{ }` and `\mathbbm{ }` changes across different letters. For example, I prefer using `\mathbbm{R}` to denote real set, but prefer using `\mathbb{H}` to denote (null/alternative) hypothesis.
+* The `dutchcal` package ([documentation](https://ctan.org/pkg/dutchcal)) reworks the mathematical calligraphic font ESSTIX13 in the package `esstix` ([documentation](https://ctan.org/pkg/esstix)) and adds a bold version. I use its command `\mathcal{ }` to produce special letters denoting support sets in Probability Theory and Statistics.
