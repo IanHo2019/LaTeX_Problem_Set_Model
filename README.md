@@ -44,7 +44,24 @@ A good guideline for `xcolor` beginners can be found [here](https://steeven9.git
 To highlight my solution to each question, I use the `shaded` environment from the `framed` package ([documentation](https://ctan.org/pkg/framed)). The color for shading can be customized by using the `\definecolor{shadecolor}` command. I use very slight gray for shading.
 
 ## Math
+
+### Packages
 * The `amsmath` package ([documentation](https://ctan.org/pkg/amsmath)) is a principal package for mathematical typesetting. Once `amsmath` is loaded, the packages `amsbsy` (for bold symbols), `amsopn` (for operator names) and `amstext` (for text embedded in mathematics) are also loaded.
 * The `amssymb` package provides an extended symbol collection, especially including some additional binary relation symbols (e.g., `\boxdot`, `\boxplus`, `\boxtimes`). Something noteworthy is that this package provides the `\mathbb{ }` command for producing blackboard bold characters.
 * The `bbm` package ([documentation](https://ctan.org/pkg/bbm)) provides blackboard variants of characters in math mode. The command is `\mathbbm{ }`, which produces the blackboard bold characters slighly different from those produced by `\mathbb{ }`. My preference between `\mathbb{ }` and `\mathbbm{ }` changes across different letters. For example, I prefer using `\mathbbm{R}` to denote real set, but prefer using `\mathbb{H}` to denote (null/alternative) hypothesis.
 * The `dutchcal` package ([documentation](https://ctan.org/pkg/dutchcal)) reworks the mathematical calligraphic font ESSTIX13 in the package `esstix` ([documentation](https://ctan.org/pkg/esstix)) and adds a bold version. I use its command `\mathcal{ }` to produce special letters denoting support sets in Probability Theory and Statistics.
+
+### Operators & Symbols
+I contruct the following operators and symbools
+```latex
+\DeclareMathOperator*{\plim}{plim}    % probability limit
+\DeclareMathOperator*{\argmin}{argmin}    % arguments of the minima
+\DeclareMathOperator*{\argmax}{argmax}    % arguments of the maxima
+\newcommand*{\defeq}{\overset{\mathrm{def}}{=\joinrel=}}    % definitional equality
+\newcommand*{\seteq}{\overset{\mathrm{set}}{=\joinrel=}}    % equality by setting
+\newcommand{\smp}[1]{\left(#1\right)}    % parentheses whose size is flexible
+\newcommand{\medp}[1]{\left[#1\right]}    % brackets whose size is flexible
+\newcommand{\bgp}[1]{\left\{#1\right\}}    % curly brackets whose size is flexible
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}    % pipes (for absolute values) whose size is flexible
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}    % double pipes (for vector norms) whose size is flexible
+```
