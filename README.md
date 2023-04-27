@@ -1,10 +1,10 @@
 # LaTeX Coding for Writing Solutions to a Problem Set
 In this repository, I share my LaTeX coding ([here](./main.tex)) for producing a pdf file with solutions to a problem set in Economics. Using my coding, you can
+  * construct a shaded frame for showing solutions;
+  * customize some mathematical operators/symbols;
   * customize a short table (e.g., specifying the column width, merging multiple columns/rows, etc.);
   * draw a picture (e.g., game tree and plot of a function) by `tikz`;
-  * customize some mathematical operators/symbols;
-  * construct a shaded frame for showing solutions;
-  * print external coding (e.g., Stata, MATLAB, R, etc.);
+  * print out external coding (e.g., Stata, MATLAB, R, etc.);
   * construct in-text citations and a reference list.
 
 ## Language and Font
@@ -65,3 +65,6 @@ I contruct the following operators and symbools
 \newcommand{\abs}[1]{\left\lvert#1\right\rvert}    % pipes (for absolute values) whose size is flexible
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}    % double pipes (for vector norms) whose size is flexible
 ```
+
+## Table
+* The `float` package ([documentation](https://ctan.org/pkg/float)) improves the interface for defining floating objects, such as figures and tables. By default, we can use something `[h]` (here), `t` (top), and `b` (bottom) to determine the figure positioning; however, these positioning options are not strong --- LaTeX still has some flexibility to select the best position in its mind. To precisely fix the position of a floating objects, we have to use the parameter `[H]` from `float`.
