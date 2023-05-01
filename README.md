@@ -68,3 +68,6 @@ I contruct the following operators and symbools
 
 ## Table
 * The `float` package ([documentation](https://ctan.org/pkg/float)) improves the interface for defining floating objects, such as figures and tables. By default, we can use something `[h]` (here), `t` (top), and `b` (bottom) to determine the figure positioning; however, these positioning options are not strong --- LaTeX still has some flexibility to select the best position in its mind. To precisely fix the position of a floating objects, we have to use the parameter `[H]` from `float`.
+* The `bookstabs` package ([documentation](https://ctan.org/pkg/booktabs)) providing extra commands for enhancing the quality of tables. My often-used commands include
+  * `\cmidrule(lr){a-b}`, giving us a horizontal line extending over only some of the columns (from the *a*th column to the *b*th column). The `(lr)` option is for trimming: creating spaces to separate the lines among columns (left and right sides).
+  * `\addlinespace[5pt]`, putting an extra space between certain rows of a table. The amount of space can be specified in the optional argument `[ ]`.
