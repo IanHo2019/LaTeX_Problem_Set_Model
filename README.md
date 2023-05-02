@@ -71,3 +71,4 @@ I contruct the following operators and symbools
 * The `bookstabs` package ([documentation](https://ctan.org/pkg/booktabs)) providing extra commands for enhancing the quality of tables. My often-used commands include
   * `\cmidrule(lr){a-b}`, giving us a horizontal line extending over only some of the columns (from the *a*th column to the *b*th column). The `(lr)` option is for trimming: creating spaces to separate the lines among columns (left and right sides).
   * `\addlinespace[5pt]`, putting an extra space between certain rows of a table. The amount of space can be specified in the optional argument `[ ]`.
+* The `caption` ([documentation](https://ctan.org/pkg/caption)) and `subcaption` ([documentation](https://ctan.org/pkg/subcaption)) packages allow us to customize the captions and subcaptions in floating environments like figure, table, subfigure, and subtable.
