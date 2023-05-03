@@ -72,3 +72,7 @@ I contruct the following operators and symbools
   * `\cmidrule(lr){a-b}`, giving us a horizontal line extending over only some of the columns (from the *a*th column to the *b*th column). The `(lr)` option is for trimming: creating spaces to separate the lines among columns (left and right sides).
   * `\addlinespace[5pt]`, putting an extra space between certain rows of a table. The amount of space can be specified in the optional argument `[ ]`.
 * The `caption` ([documentation](https://ctan.org/pkg/caption)) and `subcaption` ([documentation](https://ctan.org/pkg/subcaption)) packages allow us to customize the captions and subcaptions in floating environments like figure, table, subfigure, and subtable.
+* The `multirow` package ([documentation](https://ctan.org/pkg/multirow)) permits us to create tabular cells spanning multiple rows. The most often used command may be `\multirow[vpos]{nrows}{width}{text}`, where
+  * `vpos` specifies the vertical positioning of the text in the multirow block (options include `c`, `t`, and `b`);
+  * `nrows` is the number of rows to span;
+  * `width` specifies the width to which the text is to be set (if `*` is used, the text's natural width will be used).
