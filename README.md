@@ -76,3 +76,4 @@ I contruct the following operators and symbools
   * `vpos` specifies the vertical positioning of the text in the multirow block (options include `c`, `t`, and `b`);
   * `nrows` is the number of rows to span;
   * `width` specifies the width to which the text is to be set (if `*` is used, the text's natural width will be used).
+* The `siunitx` package ([documentation](https://ctan.org/pkg/siunitx)) ensures the exact appearance of numbers and units. In particular, it provides the `S` column type for decimal alignments and units in the `tabular` environment.
