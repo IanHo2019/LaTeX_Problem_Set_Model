@@ -77,3 +77,6 @@ I contruct the following operators and symbools
   * `nrows` is the number of rows to span;
   * `width` specifies the width to which the text is to be set (if `*` is used, the text's natural width will be used).
 * The `siunitx` package ([documentation](https://ctan.org/pkg/siunitx)) ensures the exact appearance of numbers and units. In particular, it provides the `S` column type for decimal alignments and units in the `tabular` environment.
+
+## Figure
+* The `graphicx` package ([documentation](https://ctan.org/pkg/graphicx)) provides some useful optional arguments to the `\includegraphics` command. This package is one of LaTeX "required" packages.
