@@ -80,3 +80,4 @@ I contruct the following operators and symbools
 
 ## Figure
 * The `graphicx` package ([documentation](https://ctan.org/pkg/graphicx)) provides some useful optional arguments to the `\includegraphics` command. This package is one of LaTeX "required" packages.
+* The `pifont` package ([documentation](https://ctan.org/pkg/pifont)) is distributed as part of the [psnfss](https://ctan.org/pkg/psnfss) and provides the `\ding{#}` command for printing some special symbols. A table of the available symbols can be found in its documentation.
