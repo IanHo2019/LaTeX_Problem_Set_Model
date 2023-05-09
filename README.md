@@ -88,3 +88,8 @@ I contruct the following operators and symbools
 
 ## List
 The `enumitem` package ([documentation](https://ctan.org/pkg/enumitem)) controls over the layout of the three basic list environments: `enumerate`, `itemize` and `description`. For example, we can use the `\setenumerate` command to customize labels, identation, vertical and horizontal spacing, etc.
+
+## Hypertext Links and Citations
+* The `hyperref` package ([documentation](https://ctan.org/pkg/hyperref)) handles cross-referencing commands in LaTeX to produce hypertext links in the document. This package has lots of options, and here I only use two of them:
+  * `colorlinks=true` tells LaTeX to colors the text of links and anchors. The colors chosen depend on the the type of link: `linkcolor` (for normal internal links; default is "red"), `anchorcolor` (for anchor text; default is "black"), `citecolor` (for bibliographical citations in text; default is "green"), `filecolor` (for URLs which open local files; default is "cyan"), `menucolor` (for Acrobat menu items; default is "red"), `runcolor` (for run links; default is the same as `filecolor`), and `urlcolor` (for linked URLs; default is "magenta").
+  * `allcolors=blue` tells LaTeX to set all color options as "blue".
