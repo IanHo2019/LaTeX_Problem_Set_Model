@@ -99,3 +99,8 @@ The `enumitem` package ([documentation](https://ctan.org/pkg/enumitem)) controls
   * `backend` specifies the database backend, such as `biber` supporting US-ASCII, 8-bit encodings, UTF-8, on-the-fly reencoding, locale-specific sorting, and many other features.
   * `sorting` specifies the sorting order of the bibliography. For example, `nyt` means ordering by name, year, and title.
   * `natbib=true` loads compatibility module which provides aliases for the citation commands of the `natbib` package ([documentation](https://ctan.org/pkg/natbib)). I use this option because of the additional text citation commands (e.g., `\citep`, `\citet`, `\citealp`, etc.). A good guideline can be found [here](https://journals.aas.org/natbib/).
+
+## Code Listing
+The `listings` package ([documentation](https://ctan.org/pkg/listings)) enables the user to typeset programming code within LaTeX. Keywords, comments, and strings can be typeset using different styles (default is **bold** for keywords, *italic* for comments, and no special style for strings). Supported languages include "C++", "HTML", "Java", "Mathematica", "Matlab", "Python", "R", "SAS", "TeX", etc. Sadly, "Stata" is not supported, but we can use `\lstdefinelanguage{Stata}{...}` to add it.
+
+The `listings` package provides a lot of commands (e.g., `\lstset`) and options for customizing the styles of typesetting programming code. Two brief guildlines are provided by [Overleaf](https://www.overleaf.com/learn/latex/Code_listing) and [Wikibooks](https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings).
